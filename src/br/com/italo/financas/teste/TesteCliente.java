@@ -1,8 +1,8 @@
 package br.com.italo.financas.teste;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 
 import javax.persistence.EntityManager;
 
@@ -38,7 +38,7 @@ public class TesteCliente {
 		
 		
 		//POPULAR CONTA
-		
+		/*
 		em.persist(conta);
 		
 		
@@ -54,14 +54,18 @@ public class TesteCliente {
 		mov.setData(Calendar.getInstance());
 		mov.setTipo(TipoMovimentacao.SAIDA);
 		mov.setConta(em.find(Conta.class,1));
+		mov.setDescricao("Viagens da morena");
+		mov.setValor(new BigDecimal(300.0));
+		
+		em.persist(mov);*/
 		
 		//--Popular cliente
 		
-		 c.setConta(em.find(Conta.class, 25));
+		 c.setConta(em.find(Conta.class, 1));
 		 c.setEndereco("Rua Hum apa 425 Bloco: B");
-		 c.setName(em.find(Conta.class, 25).getTitular());
+		 c.setName(em.find(Conta.class, 1).getTitular());
 		 c.setProfissao("Analista de Sistemas Jr.");
-			 
+		 c.setMovimentacao(Arrays.asList(em.find(Movimentacao.class, 1))); 
 		
 		em.persist(c);
 		 
